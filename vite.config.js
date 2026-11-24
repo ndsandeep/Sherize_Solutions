@@ -1,0 +1,22 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import path from "path";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  server: {
+    host: true,
+    port: 5173,
+    allowedHosts: true,
+  },
+  build: {
+    // three.js is lazy-loaded (only fetched when a 3D scene nears the viewport), so its chunk is large by design.
+    chunkSizeWarningLimit: 1000,
+  },
+});

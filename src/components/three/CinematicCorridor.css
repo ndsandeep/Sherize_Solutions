@@ -1,0 +1,83 @@
+.corridor-intro { height: 400vh; position: relative; background: #0D1B28; isolation: isolate; }
+.corridor-sticky { position: sticky; top: 0; height: 100svh; width: 100%; overflow: hidden; z-index: 200; background: #0D1B28; }
+.corridor-sticky canvas { display: block; }
+.corridor-loading { position: absolute; inset: 0; background: #0D1B28; }
+.corridor-vignette { pointer-events: none; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 47%, transparent 22%, rgba(0,0,0,.42) 100%); }
+.corridor-cue { position: absolute; bottom: max(35px, 7vh); left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 14px; font-size: 10px; font-weight: 600; letter-spacing: .32em; color: #f5e7d3; white-space: nowrap; pointer-events: none; text-shadow: 0 1px 15px #000; }
+.corridor-cue-line { height: 40px; width: 1px; background: linear-gradient(transparent,#167D8D); animation: corridor-pulse 2s ease-in-out infinite; }
+.corridor-exit-light { pointer-events: none; position: absolute; inset: 0; background: #f5eee2; }
+.corridor-fallback { min-height: 55vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #101D2B; color: #f5e7d3; letter-spacing: .25em; }
+.corridor-fallback p { font-size: .7rem; margin-top: 1.5rem; }
+@keyframes corridor-pulse { 50% { opacity: .25; transform: scaleY(.7); } }
+@media(max-width: 700px) { .corridor-intro { height: 300vh; } .corridor-cue { bottom: 12vh; font-size: 9px; } }
+
+/* Scroll-synchronised title: no other copy appears during the corridor journey. */
+.corridor-welcome { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: clamp(12px,2vh,22px); pointer-events: none; z-index: 3; text-align: center; transform-origin: 50% 50%; padding: 1.5rem; text-shadow: 0 4px 30px rgba(0,0,0,.85); }
+.corridor-welcome-eyebrow { font-size: clamp(.7rem,1.1vw,.95rem); font-weight: 600; letter-spacing: .48em; color: #f5e7d3; }
+.corridor-welcome-title { font-size: clamp(3.5rem,10vw,9rem); font-weight: 800; line-height: 1; letter-spacing: -.065em; color: #fffaf0; }
+.corridor-welcome-period { color: #167D8D; }
+@media (max-width: 700px) { .corridor-welcome-title { font-size: clamp(3.2rem,14vw,6rem); } .corridor-welcome-eyebrow { letter-spacing: .3em; } }
+
+/* The real homepage hero sits behind the corridor and is revealed as the doors open.
+   It is the final viewport of the scroll journey, not a separate extra scroll. */
+.corridor-3d-layer { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.corridor-home-reveal { position: absolute; inset: 0; z-index: 1; overflow: hidden; background: #0D1B28; }
+.corridor-home-reveal > section { min-height: 100svh; }
+.corridor-exit-light { display: none; }
+
+/* No light/white interstitial frame during the door-to-home handoff. */
+.corridor-home-reveal, .corridor-sticky { background-color: #0D1B28; }
+.corridor-home-reveal > section { height: 100svh; overflow: hidden; }
+
+/* Final handoff: the REAL homepage hero occupies the last viewport of the
+   corridor timeline. No cloned hero and no blank intermediate section. */
+.corridor-intro { z-index: 2; }
+.corridor-sticky { pointer-events: none; }
+.corridor-real-home-hero {
+  position: relative;
+  z-index: 1;
+  margin-top: -100svh;
+  min-height: 100svh;
+  background: #0D1B28;
+  isolation: isolate;
+}
+.corridor-real-home-hero > section { min-height: 100svh; }
+/* The actual hero must stay interactive when the transparent 3D layer leaves. */
+.corridor-real-home-hero a, .corridor-real-home-hero button { pointer-events: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .corridor-intro { display: none; }
+  .corridor-real-home-hero { margin-top: 0; }
+}
+
+/* Hero handoff correction: the real hero stays in view for a complete
+   viewport after the corridor ends. Only ONE CinematicHero is mounted. */
+.corridor-real-home-hero {
+  height: 200svh;
+  min-height: 200svh;
+  margin-top: -100svh;
+  background: #0D1B28;
+}
+.corridor-real-home-hero > section {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  min-height: 100svh;
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .corridor-real-home-hero { height: auto; min-height: 100svh; margin-top: 0; }
+  .corridor-real-home-hero > section { position: relative; height: auto; min-height: 100svh; }
+}
+
+/* FINAL DOOR-TO-HOME HANDOFF: the real hero is the only homepage hero.
+   It lives under the 3D layer in the same sticky viewport, so the doorway
+   exposes it as soon as it opens. The following scroll reaches ServiceMarquee. */
+.corridor-intro { height: 400vh; position: relative; z-index: 1; background: #0D1B28; }
+.corridor-sticky { position: sticky; top: 0; height: 100svh; background: transparent; overflow: hidden; pointer-events: auto; }
+.corridor-home-behind { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.corridor-home-behind > section { height: 100svh; min-height: 100svh; width: 100%; }
+.corridor-3d-layer { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: #0D1B28; }
+.corridor-3d-layer canvas { width: 100%; height: 100%; }
+.corridor-motion-fallback > section { min-height: 100svh; }
+@media (max-width: 700px) { .corridor-intro { height: 300vh; } }
+@media (prefers-reduced-motion: reduce) { .corridor-intro { display: block; height: auto; } .corridor-sticky { position: relative; height: auto; } }
