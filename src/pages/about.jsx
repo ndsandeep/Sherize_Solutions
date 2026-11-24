@@ -53,9 +53,9 @@ export default function AboutPage() {
       <section className="relative pt-40 pb-20 sm:pt-48 sm:pb-32 overflow-hidden min-h-[90vh] flex items-center bg-[#0D1B28]">
         {/* Background Image */}
         <Parallax className="absolute inset-0 z-0" amount={6}>
-          <img 
-            src={aboutHero} 
-            alt="About Sherize" 
+          <img
+            src={aboutHero}
+            alt="About Sherize"
             className="w-full h-full object-cover opacity-60 scale-105"
           />
           <div className="absolute inset-0 bg-[#0D1B28]/75" />
@@ -68,7 +68,7 @@ export default function AboutPage() {
           <Reveal>
             <span className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-[#D6A35B] font-semibold mb-6 drop-shadow-md">
               <span className="h-px w-12 bg-[#D6A35B]/50" />
-              About Sherize
+              ABOUT SHERIZE
               <span className="h-px w-12 bg-[#D6A35B]/50" />
             </span>
             <KineticHeading
@@ -119,47 +119,48 @@ export default function AboutPage() {
                 {specialties.map((s, i) => {
                   const Icon = iconsMap[i % iconsMap.length];
                   return (
-                  <div
-                    key={s.label}
-                    className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl border border-[rgba(16,29,43,0.1)] shadow-sm transition-transform hover:-translate-y-1 hover:border-primary/40"
-                  >
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="text-sm font-medium text-[#101D2B]">{s.label}</span>
-                  </div>
-                )})}
+                    <div
+                      key={s.label}
+                      className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl border border-[rgba(16,29,43,0.1)] shadow-sm transition-transform hover:-translate-y-1 hover:border-primary/40"
+                    >
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span className="text-sm font-medium text-[#101D2B]">{s.label}</span>
+                    </div>
+                  )
+                })}
               </div>
             </Reveal>
 
             <Reveal delay={150} className="lg:col-span-6 flex justify-center">
               <Tilt3D max={6} lift={1.01} className="w-full max-w-[500px] aspect-square rounded-[2.5rem]">
-              <div className="relative w-full aspect-square">
-                <div className="absolute -inset-6 rounded-[3rem] ring-conic opacity-20 blur-2xl" />
-                <div className="relative w-full aspect-square rounded-[2.5rem] overflow-hidden border border-[rgba(16,29,43,0.1)] bg-white shadow-xl">
-                  <img
-                    src={aboutTeam}
-                    alt="Sherize Team Collaboration"
-                    className="mf-img w-full h-full object-cover"
-                  />
+                <div className="relative w-full aspect-square">
+                  <div className="absolute -inset-6 rounded-[3rem] ring-conic opacity-20 blur-2xl" />
+                  <div className="relative w-full aspect-square rounded-[2.5rem] overflow-hidden border border-[rgba(16,29,43,0.1)] bg-white shadow-xl">
+                    <img
+                      src={aboutTeam}
+                      alt="Sherize Team Collaboration"
+                      className="mf-img w-full h-full object-cover"
+                    />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#101D2B]/80 via-[#101D2B]/15 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101D2B]/80 via-[#101D2B]/15 to-transparent" />
 
-                  <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 flex items-center gap-4 border border-[rgba(16,29,43,0.08)] shadow-lg">
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary">
-                      <Sparkles className="h-6 w-6" />
-                    </span>
-                    <div>
-                      <div className="text-base font-semibold text-[#101D2B]">
-                        Collaborative culture
-                      </div>
-                      <div className="text-sm text-[#4F789E]">
-                        Driven by talent, united by shared ambition.
+                    <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 flex items-center gap-4 border border-[rgba(16,29,43,0.08)] shadow-lg">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/15 text-primary">
+                        <Sparkles className="h-6 w-6" />
+                      </span>
+                      <div>
+                        <div className="text-base font-semibold text-[#101D2B]">
+                          Collaborative culture
+                        </div>
+                        <div className="text-sm text-[#4F789E]">
+                          Driven by talent, united by shared ambition.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
               </Tilt3D>
             </Reveal>
           </div>
