@@ -26,7 +26,7 @@ export function HeroBackground() {
         <motion.div
           key={index}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.28 }}
+          animate={{ opacity: 0.62 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.8, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full"
@@ -36,7 +36,7 @@ export function HeroBackground() {
       </AnimatePresence>
 
       <div className="absolute inset-0 bg-mesh" />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #0D1B28 18%, rgba(13,27,40,0.55) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(13,27,40,0.55) 0%, rgba(13,27,40,0.42) 100%)" }} />
       <div className="absolute inset-x-0 bottom-0 h-40" style={{ background: "linear-gradient(to top, #0D1B28, transparent)" }} />
     </div>
   );
