@@ -2,9 +2,9 @@ import { CinematicHero } from "@/components/sections/Hero/CinematicHero";
 import CinematicCorridor from "@/components/three/CinematicCorridor";
 import "@/components/three/CinematicCorridor.css";
 import { WaveDivider } from "@/components/shared/WaveDivider";
-import { Empowerment } from "@/components/sections/Empowerment";
+import { HomeEmpowerment } from "@/components/sections/HomeEmpowerment";
 import { WhoWeAre } from "@/components/sections/WhoWeAre";
-import { WhyChoose } from "@/components/sections/WhyChoose";
+import { HomeWhyChoose } from "@/components/sections/HomeWhyChoose";
 import { CoreCapabilitiesCards } from "@/components/sections/CoreCapabilitiesCards";
 import { OrbCTA } from "@/components/shared/OrbCTA";
 import { ServiceMarquee } from "@/components/sections/ServiceMarquee";
@@ -27,9 +27,9 @@ export default function Index() {
         <SectionDivider />
         <CoreCapabilitiesCards />
         <SectionDivider />
-        <Empowerment />
+        <HomeEmpowerment />
         <SectionDivider />
-        <WhyChoose />
+        <HomeWhyChoose />
         <SectionDivider />
         <OrbCTA />
       </PageShell>

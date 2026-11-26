@@ -163,12 +163,12 @@ export function WhoWeAre() {
   return (
     <section
       id="about"
-      className="relative py-20 sm:py-24 overflow-hidden bg-[#FAF9F6]"
+      className="relative py-20 sm:py-24 overflow-x-clip bg-[#FAF9F6]"
     >
       {/* Subtle Background Glow */}
       <div
         aria-hidden
-        className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-primary/[0.04] blur-[120px] pointer-events-none"
+        className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[600px] w-full max-w-[600px] rounded-full bg-primary/[0.04] blur-[120px] pointer-events-none"
       />
 
       <div className="w-full max-w-[1280px] mx-auto px-6 relative z-10">

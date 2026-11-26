@@ -21,8 +21,7 @@ import { PageShell, CTASection } from "@/components/layout/PageShell";
 import { Reveal } from "@/components/shared/Reveal";
 import { KineticHeading } from "@/components/shared/KineticHeading";
 import { Parallax } from "@/components/shared/Parallax";
-import { DepthReveal } from "@/components/shared/DepthReveal";
-import { Tilt3D } from "@/components/shared/Tilt3D";
+import { CareersBenefits } from "@/components/sections/CareersBenefits";
 import { SceneBackdrop } from "@/components/three/SceneBackdrop";
 import { BackButton } from "@/components/layout/BackButton";
 import empowerment from "@/assets/images/empowerment.jpg";
@@ -39,13 +38,11 @@ const iconsMap = [Home, Briefcase, PhoneCall, Palette, GraduationCap, TrendingUp
 export default function OpportunitiesPage() {
   const [opportunities, setOpportunities] = useState([]);
   const [activeRole, setActiveRole] = useState(null);
-  const [careerPerks, setCareerPerks] = useState([]);
   const [socialLinks, setSocialLinks] = useState({});
 
   useEffect(() => {
     const loadData = () => {
       setOpportunities(dataService.getRoles());
-      setCareerPerks(dataService.getCareerPerks());
       setSocialLinks(dataService.getSocial());
     };
     loadData();
@@ -245,65 +242,10 @@ Sincerely,
     </div>
       </section >
 
-    <SectionDivider />
+      <SectionDivider />
 
-  {/* Premium "Why Join" Grid Section */ }
-      <section className="relative py-20 sm:py-32 overflow-hidden bg-gradient-to-b from-[#167D8D] to-[#126875] text-white">
-        <div className="w-full max-w-[1280px] mx-auto px-6 relative z-10">
-          <Reveal className="text-center mb-16 sm:mb-24">
-            <span className="inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-[#D6A35B] font-semibold mb-4">
-              <span className="h-px w-12 bg-[#D6A35B]/60" />
-              Why join us
-              <span className="h-px w-12 bg-[#D6A35B]/60" />
-            </span>
-            <KineticHeading
-              as="h2"
-              className="text-4xl sm:text-6xl lg:text-7xl font-display font-semibold tracking-tighter text-white leading-tight"
-            >
-              More than just <br className="hidden sm:block" /> <span className="text-[#D6A35B] underline decoration-[#D6A35B]/40">a job</span>.
-            </KineticHeading>
-          </Reveal>
-
-          {/* Premium Glassmorphism Interactive Grid - Horizontal Line */}
-          <div className="flex overflow-x-auto gap-4 lg:gap-6 pb-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-            {careerPerks.map((w, i) => (
-              <DepthReveal key={w.id || w.title || i} delay={i * 0.05}>
-                <Tilt3D max={8} className="h-full rounded-[1.5rem]">
-                <div className="relative group p-6 sm:p-8 rounded-[1.5rem] bg-white/10 border border-white/20 hover:bg-white/15 hover:border-white/50 transition-all duration-500 overflow-hidden hover:-translate-y-2 cursor-pointer shadow-xl backdrop-blur-sm h-full flex flex-col items-center text-center min-w-[280px] w-[280px] sm:min-w-[300px] sm:w-[300px] snap-center">
-
-                  {/* Subtle hover background glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                  {/* Dynamic Floating Icon */}
-                  <div className="shrink-0 mb-8 relative">
-                    <div className="absolute inset-0 bg-white/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700 ease-out" />
-                    <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/15 text-white border border-white/20 shadow-inner group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500">
-                      {(() => {
-                        const Icon = iconsMap[i % iconsMap.length];
-                        return <Icon className="h-5 w-5" />;
-                      })()}
-                    </span>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 relative z-10">
-                    <h4 className="text-xl sm:text-2xl font-display font-semibold text-white mb-3 group-hover:text-white transition-colors duration-300">
-                      {w.title}
-                    </h4>
-                    <p className="text-base text-white/85 font-light leading-relaxed transition-colors duration-300">
-                      {w.desc}
-                    </p>
-                  </div>
-
-                  {/* Decorative corner accent */}
-                  <div className="absolute -bottom-2 -right-2 w-24 h-24 bg-gradient-to-br from-white/20 to-transparent blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                </div>
-                </Tilt3D>
-              </DepthReveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Cinematic "Why Join Us" Experience */}
+      <CareersBenefits />
 
       <SectionDivider />
 
