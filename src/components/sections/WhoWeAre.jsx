@@ -1,6 +1,90 @@
+
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/shared/Reveal";
 import { KineticHeading } from "@/components/shared/KineticHeading";
+import { gsap, ScrollTrigger, prefersReducedMotion } from "@/lib/motion";
+import { dataService } from "@/services/dataService";
+
+/* Split Text Animation */
+function SplitDescription() {
+  const textRef = useRef(null);
+
+  const companyName = "Sherize Solutions Private Limited";
+
+  const description =
+    "combines technology and human support services to help businesses scale efficiently while creating flexible earning opportunities for women worldwide.";
+
+  useEffect(() => {
+    const el = textRef.current;
+
+    if (!el || prefersReducedMotion()) return;
+
+    const ctx = gsap.context(() => {
+      const chars = el.querySelectorAll(".who-we-are-char");
+
+      gsap.fromTo(
+        chars,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.025,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            once: true,
+          },
+        }
+      );
+    }, el);
+
+    return () => ctx.revert();
+  }, []);
+
+  const renderText = (text) =>
+    text.split(" ").map((word, wordIndex, words) => (
+      <span key={wordIndex}>
+        <span
+          style={{
+            display: "inline-block",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {Array.from(word).map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="who-we-are-char"
+              style={{ display: "inline-block" }}
+            >
+              {char}
+            </span>
+          ))}
+        </span>
+        {wordIndex < words.length - 1 ? " " : ""}
+      </span>
+    ));
+
+  return (
+    <p
+      ref={textRef}
+      aria-label={`${companyName} ${description}`}
+      className="text-xl sm:text-2xl text-[#4F789E] leading-relaxed font-light"
+    >
+      <span aria-hidden="true">
+        <span className="text-[#101D2B] font-medium">
+          {renderText(companyName)}
+        </span>
+        {" "}
+        {renderText(description)}
+      </span>
+    </p>
+  );
+}
 
 function Counter({ to, suffix = "" }) {
   const ref = useRef(null);
@@ -18,26 +102,30 @@ function Counter({ to, suffix = "" }) {
           if (e.isIntersecting) {
             const start = performance.now();
             const dur = 1600;
+
             const tick = (t) => {
               const p = Math.min(1, (t - start) / dur);
               const eased = 1 - Math.pow(1 - p, 3);
+
               setN(Math.round(eased * to));
+
               if (p < 1) {
                 rafId = requestAnimationFrame(tick);
               }
             };
+
             rafId = requestAnimationFrame(tick);
           } else {
-            // Reset the counter and cancel animation when out of view
             cancelAnimationFrame(rafId);
             setN(0);
           }
         });
       },
-      { threshold: 0.4 },
+      { threshold: 0.4 }
     );
 
     io.observe(el);
+
     return () => {
       io.disconnect();
       cancelAnimationFrame(rafId);
@@ -52,23 +140,31 @@ function Counter({ to, suffix = "" }) {
   );
 }
 
-import { dataService } from "@/services/dataService";
-
 export function WhoWeAre() {
   const [stats, setStats] = useState([]);
 
   useEffect(() => {
-    // Load stats from data service
     const loadStats = () => setStats(dataService.getStats());
+
     loadStats();
-    
-    // Listen for custom event in case admin updates it in another tab or same window
-    window.addEventListener("sherize_data_updated", loadStats);
-    return () => window.removeEventListener("sherize_data_updated", loadStats);
+
+    window.addEventListener(
+      "sherize_data_updated",
+      loadStats
+    );
+
+    return () =>
+      window.removeEventListener(
+        "sherize_data_updated",
+        loadStats
+      );
   }, []);
 
   return (
-    <section id="about" className="relative py-20 sm:py-24 overflow-hidden bg-[#FAF9F6]">
+    <section
+      id="about"
+      className="relative py-20 sm:py-24 overflow-hidden bg-[#FAF9F6]"
+    >
       {/* Subtle Background Glow */}
       <div
         aria-hidden
@@ -88,16 +184,19 @@ export function WhoWeAre() {
             className="mt-8 text-5xl sm:text-7xl lg:text-[4rem] font-display font-semibold tracking-tighter leading-[0.95] text-black"
           >
             Technology with a <br className="hidden md:block" />
-            <span className="text-gradient">human heartbeat.</span>
+            <span className="text-gradient">
+              human heartbeat.
+            </span>
           </KineticHeading>
         </Reveal>
 
-        <Reveal delay={150} className="text-center mt-12 max-w-3xl mx-auto">
-          <p className="text-xl sm:text-2xl text-[#4F789E] leading-relaxed font-light">
-            <span className="text-[#101D2B] font-medium">Sherize Solutions Private Limited</span>{" "}
-            combines technology and human support services to help businesses scale efficiently
-            while creating flexible earning opportunities for women worldwide.
-          </p>
+        <Reveal
+          delay={150}
+          className="text-center mt-12 max-w-3xl mx-auto"
+        >
+          {/* Split Text Animation */}
+          <SplitDescription />
+
           <p className="mt-5 text-sm font-semibold text-[#D6A35B] tracking-widest uppercase">
             Women-first · Remote-ready · Impact-driven
           </p>
@@ -111,6 +210,7 @@ export function WhoWeAre() {
                   <div className="text-5xl sm:text-6xl font-display font-semibold text-[#D6A35B] transition-colors duration-300 group-hover:text-primary">
                     <Counter to={stat.v} suffix={stat.s} />
                   </div>
+
                   <div className="mt-4 text-sm sm:text-base uppercase tracking-widest font-medium text-[#4F789E]">
                     {stat.label}
                   </div>
