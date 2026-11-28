@@ -64,7 +64,7 @@ export function ServicesHero() {
               as="h1"
               className="services-hero-title"
               accentWords={["Digital", "Excellence."]}
-              accentClass="text-[#15222F]"
+              accentClass="text-[#FFB703]"
               delay={0.025}
             />
 

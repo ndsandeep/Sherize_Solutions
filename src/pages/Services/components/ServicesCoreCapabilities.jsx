@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { SERVICES_MENU } from "@/config/servicesMenu";
 import { Reveal } from "@/components/shared/Reveal";
@@ -126,34 +125,18 @@ export function ServicesCoreCapabilities({
                           <span className="text-xs uppercase tracking-wider text-[#D6A35B] font-semibold">
                             Specialized Domains
                           </span>
-                          <span className="md:hidden text-[10px] text-white/50">
-                            Tap domain to open
-                          </span>
                         </div>
-                        <ul className="space-y-1 sm:space-y-1.5 w-full">
+                        <ul className="space-y-1.5 w-full">
                           {col.items.map((item) => (
-                            <li key={item.slug}>
-                              <Link
-                                to={`/services/${item.slug}`}
-                                onClick={(e) => e.stopPropagation()}
-                                className="group/item flex items-center justify-between py-1.5 px-3 rounded-xl text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/10 active:bg-white/20 border border-transparent hover:border-white/15 transition-all duration-200"
-                              >
-                                <span className="flex items-center gap-2.5 font-medium">
-                                  <span className="h-1.5 w-1.5 rounded-full bg-[#D6A35B] group-hover/item:scale-125 transition-transform" />
-                                  {item.name}
-                                </span>
-                                <ArrowRight className="h-3.5 w-3.5 text-white/40 group-hover/item:text-[#D6A35B] group-hover/item:translate-x-1 transition-all" />
-                              </Link>
+                            <li
+                              key={item.slug}
+                              className="flex items-center gap-2.5 py-1.5 px-3 rounded-xl text-xs sm:text-sm text-white/90 font-medium"
+                            >
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#D6A35B] shrink-0" />
+                              <span>{item.name}</span>
                             </li>
                           ))}
                         </ul>
-                      </div>
-
-                      <div className="pt-2 sm:pt-3 border-t border-white/15 flex items-center justify-between text-xs text-white/60 shrink-0">
-                        <span className="text-[11px] sm:text-xs">Click to explore</span>
-                        <span className="text-[#D6A35B] font-semibold flex items-center gap-1 text-[11px] sm:text-xs">
-                          Explore <ArrowRight className="h-3 w-3" />
-                        </span>
                       </div>
                     </div>
                   </div>
