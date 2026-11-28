@@ -1,0 +1,673 @@
+/* Isolated styles strictly scoped to the Careers page using the 'careers-' prefix */
+
+.careers-page-container {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Entry Video + Sherize Profile Section */
+.careers-video-section {
+  position: relative;
+  width: 100%;
+  padding: 4rem 0 5rem;
+  background: linear-gradient(180deg, #0b1520 0%, #101d2b 100%);
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .careers-video-section {
+    padding: 5rem 0 6rem;
+  }
+}
+
+.careers-video-container {
+  width: 94%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Top Row: ~80% Very Big Video + ~20% Intro Text Beside It */
+.careers-video-top-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+  .careers-video-top-grid {
+    grid-template-columns: 4fr 1.1fr; /* ~78-80% video, ~20-22% text beside */
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+}
+
+/* Very Big Video Frame */
+.careers-video-frame {
+  position: relative;
+  width: 100%;
+  min-height: 360px;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  background: #070e16;
+  border: 1px solid rgba(214, 163, 91, 0.35);
+  box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.65);
+}
+
+@media (min-width: 640px) {
+  .careers-video-frame {
+    min-height: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-video-frame {
+    min-height: 78vh;
+  }
+}
+
+.careers-video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.careers-video-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 21, 32, 0.45) 0%,
+    transparent 35%,
+    rgba(11, 21, 32, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.careers-video-sound-btn {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 9999px;
+  background: rgba(16, 29, 43, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(214, 163, 91, 0.45);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.careers-video-sound-btn:hover {
+  background: #D6A35B;
+  color: #0b1520;
+}
+
+/* Beside Video (~20% Text Column) */
+.careers-video-beside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.careers-story-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #D6A35B;
+  margin-bottom: 0.75rem;
+}
+
+.careers-story-title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .careers-story-title {
+    font-size: 2.15rem;
+  }
+}
+
+.careers-story-highlight {
+  color: #D6A35B;
+}
+
+.careers-story-beside-text {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  font-weight: 400;
+  color: rgba(248, 250, 252, 0.92);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .careers-story-beside-text {
+    font-size: 1.15rem;
+  }
+}
+
+/* Full Content Below Video (Normal Flow & Weight, Larger Size) */
+.careers-story-full-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+  padding-top: 2.75rem;
+  border-top: 1px solid rgba(214, 163, 91, 0.25);
+}
+
+.careers-story-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.careers-story-section-heading {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #D6A35B;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .careers-story-section-heading {
+    font-size: 2rem;
+  }
+}
+
+.careers-story-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  font-weight: 400;
+  color: rgba(248, 250, 252, 0.92);
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .careers-story-paragraph {
+    font-size: 1.25rem;
+  }
+}
+
+.careers-story-bold-lead {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* =========================================================
+   Opening Leaves-to-Center Logo Intro (Larger & Clearer)
+   ========================================================= */
+
+.careers-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #05080f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.careers-intro-stage {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .careers-intro-stage {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+.careers-intro-leaf {
+  position: absolute;
+  width: 42px;
+  height: 66px;
+  filter: drop-shadow(0 0 14px rgba(214, 163, 91, 0.5));
+}
+
+.careers-intro-logo-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.careers-intro-circle {
+  width: 148px;
+  height: 148px;
+  border-radius: 9999px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.35rem;
+  box-shadow: 0 0 45px rgba(214, 163, 91, 0.35), 0 14px 36px rgba(0, 0, 0, 0.55);
+}
+
+@media (min-width: 640px) {
+  .careers-intro-circle {
+    width: 190px;
+    height: 190px;
+    padding: 1.75rem;
+  }
+}
+
+.careers-intro-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================================
+   Life at Sherize Section (Static ShinyText Heading + Hover-Only Matter, Zero Gaps)
+   ========================================================= */
+
+.careers-life-section {
+  position: relative;
+  padding-top: 3rem;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.careers-life-header-wrap {
+  width: 92%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.careers-life-bands {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.careers-life-band {
+  width: 100%;
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 1024px) {
+  .careers-life-band {
+    padding: 1.75rem 0;
+  }
+}
+
+.careers-life-band.theme-white {
+  background-color: #FFFFFF;
+  color: #101D2B;
+}
+
+.careers-life-band.theme-teal {
+  background-color: #157A88;
+  color: #FFFFFF;
+}
+
+.careers-life-pair {
+  width: 92%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .careers-life-pair {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .careers-life-pair.align-left {
+    justify-content: flex-start;
+  }
+
+  .careers-life-pair.align-right {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+  }
+}
+
+/* Standalone Clean Square Image (No card box, no overlays, no borders) */
+.careers-life-img-wrap {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .careers-life-img-wrap {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .careers-life-img-wrap {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+.careers-life-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.careers-life-pair:hover .careers-life-img,
+.careers-life-pair.is-hovered .careers-life-img {
+  transform: scale(1.06);
+}
+
+/* Beside Image Container: Full Available Width so Lines Run Straight Without Mid-Cut */
+.careers-life-beside-matter {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .careers-life-pair.align-right .careers-life-beside-matter {
+    text-align: right;
+    align-items: flex-end;
+  }
+}
+
+.careers-life-desc-eyebrow {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.6rem;
+  color: #D6A35B;
+}
+
+.careers-life-band.theme-teal .careers-life-desc-eyebrow {
+  color: #FFE4B5;
+}
+
+/* Main Heading Stays Static with ShinyText & Larger Size */
+.careers-life-desc-title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .careers-life-desc-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Remaining Description Content: Hidden Until Hover on Desktop, Always Accessible on Mobile */
+.careers-life-desc-reveal {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .careers-life-desc-reveal {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateX(24px);
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.4s ease,
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      max-height 0.45s ease;
+  }
+
+  .careers-life-pair.align-right .careers-life-desc-reveal {
+    transform: translateX(-24px);
+  }
+
+  .careers-life-pair.is-hovered .careers-life-desc-reveal,
+  .careers-life-pair:hover .careers-life-desc-reveal {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0);
+    max-height: 260px;
+  }
+}
+
+.careers-life-desc-text {
+  font-size: 1.1rem;
+  line-height: 1.68;
+  margin: 0;
+  opacity: 0.92;
+}
+
+@media (min-width: 1024px) {
+  .careers-life-desc-text {
+    font-size: 1.3rem;
+  }
+}
+
+/* React Bits ShinyText Effect */
+.careers-shiny-text {
+  display: inline-block;
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: careersShinySweep var(--shiny-speed, 3.2s) linear infinite;
+}
+
+.careers-shiny-text.is-dark-shiny {
+  background-image: linear-gradient(
+    110deg,
+    #101D2B 35%,
+    #D6A35B 50%,
+    #101D2B 65%
+  );
+}
+
+.careers-shiny-text.is-light-shiny {
+  background-image: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.85) 35%,
+    #FFE4B5 50%,
+    rgba(255, 255, 255, 0.85) 65%
+  );
+}
+
+@keyframes careersShinySweep {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+/* =========================================================
+   Explore Career Opportunities Section
+   ========================================================= */
+
+.careers-jobs-section {
+  position: relative;
+  padding: 5rem 0 6rem;
+  background: #FAF9F6;
+}
+
+.careers-jobs-container {
+  width: 92%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.careers-jobs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .careers-jobs-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+.careers-job-card {
+  height: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(16, 29, 43, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 32px -12px rgba(16, 29, 43, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.careers-job-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(214, 163, 91, 0.55);
+  box-shadow: 0 22px 44px -14px rgba(16, 29, 43, 0.18);
+}
+
+.careers-job-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.careers-job-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.875rem;
+  background: rgba(27, 136, 152, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.careers-job-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.careers-job-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  background: #FAF9F6;
+  border: 1px solid rgba(16, 29, 43, 0.1);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #101D2B;
+}
+
+.careers-job-title {
+  font-family: var(--font-display, "Space Grotesk", sans-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #101D2B;
+  margin-bottom: 0.65rem;
+}
+
+.careers-job-desc {
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: #4F789E;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.careers-job-skills-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.careers-job-skills-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #101D2B;
+  margin-bottom: 0.55rem;
+}
+
+.careers-job-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.careers-job-skill-chip {
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  background: rgba(214, 163, 91, 0.14);
+  color: #9a6922;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.careers-job-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  border-radius: 0.875rem;
+  background: #101D2B;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.careers-job-apply-btn:hover {
+  background: #1B8898;
+  transform: translateY(-1px);
+}

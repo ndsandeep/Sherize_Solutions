@@ -15,6 +15,7 @@ export function SplitText({
   accentWords = [],
   accentClass = "text-[#FAF9F6]",
   initialDelay = 0.1,
+  startOnView = false,
 }) {
   const words = text.split(" ");
   const MotionTag = motion[as] || motion.div;
@@ -51,7 +52,9 @@ export function SplitText({
       className={className}
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      {...(startOnView
+        ? { whileInView: "visible", viewport: { once: true, amount: 0.25 } }
+        : { animate: "visible" })}
       aria-label={text}
     >
       {words.map((word, wordIndex) => {
